@@ -94,18 +94,7 @@ def local_search_MA_animated(X, D, n, j_eval, k_eval, verbose=False):
 
             k += 1
         j += 1
-
-    plt.ioff()
-    ax.legend(handles=[
-        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='lightgray', markersize=10, label='No seleccionado'),
-        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red', markersize=10, label='Seleccionado'),
-        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='green', markersize=10, label='Susceptible de intercambio'),
-        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=10, label='Punto de intercambio exterior')
-    ])
-    ax.set_title('Estado final')
-    plt.show()
-
-
+    
     if verbose:
       if mejora:
         print("Número de iteraciones: ", j * k)
@@ -118,4 +107,14 @@ def local_search_MA_animated(X, D, n, j_eval, k_eval, verbose=False):
         print(f"La diferencia de MD es {MD(X_star, D) - MD(X, D)}")
       else:
         print("No se encontró mejora")
+
+    plt.ioff()
+    ax.legend(handles=[
+        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='lightgray', markersize=10, label='No seleccionado'),
+        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red', markersize=10, label='Seleccionado'),
+        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='green', markersize=10, label='Susceptible de intercambio'),
+        plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=10, label='Punto de intercambio exterior')
+    ])
+    ax.set_title('Estado final')
+    plt.show()
     return X_star, mejora
