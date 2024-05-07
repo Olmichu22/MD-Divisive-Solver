@@ -8,15 +8,17 @@ This library provides tools for solving the Diversity Maximization problem, comm
 The Diversity Maximization problem aims to select a subset of elements from a larger set such that the diversity among the selected elements is maximized. Mathematically, given a set \( N \) of \( n \) elements, the goal is to select \( m \) elements that maximize the diversity index, defined based on distances or dissimilarities between the elements.
 Diversity could be calculated as follows:
 
-$MD(X) = \sum_{i}^{n-1} \sum_{j < i}^n d_{ij}x_ix_j$
-
+$$
+MD(X) = \sum_{i}^{n-1} \sum_{j < i}^n d_{ij}x_ix_j
+$$
 
 where $x_i$ and $x_j$ are binary variables indicating if elements $i$ and $j$ are selected, respectively, and $d_{ij}$ is the diversity between elements $i$ and $j$.
 
 Vector $X$ meets the following constraint:
 
-$\sum_{i}^{n} x_i = m$
-
+$$
+\sum_{i}^{n} x_i = m
+$$
 ## Functions
 
 ### `MD_problem_heuristic`
