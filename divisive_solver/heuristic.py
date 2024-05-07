@@ -48,8 +48,8 @@ def MD_problem_heuristic(N, M_dim, seed, verbose = False ,D_matrix=None, plot_in
     MD_i.append(MD(X, diversity_matriz))
     if verbose:
       if iter_i % plot_int == 0:
-        plt.scatter(N[X == 1][:,0], N[X == 1][:,1], c = "red", label= "X")
         plt.scatter(N[X==0][:,0], N[X==0][:,1], c = "blue", label = "N")
+        plt.scatter(N[X == 1][:,0], N[X == 1][:,1], c = "red", label= "X")
         plt.title(f"Iteración {iter_i} MD = {np.round(MD_i[-1],2)}")
         plt.show()
     iter_i += 1
@@ -61,6 +61,7 @@ def MD_problem_heuristic(N, M_dim, seed, verbose = False ,D_matrix=None, plot_in
     print("Vector X: ", X)
     print("MD: ", MD_i[-1])
     print("Tiempo: ", time_f - time_i)
+    plt.title(f"Solución final MD = {np.round(MD_i[-1],2)}")
     plt.scatter(N[X==0][:,0], N[X==0][:,1], c = "blue", label = "N")
     plt.scatter(N[X == 1][:,0], N[X == 1][:,1], c = "red", label= "M")
     plt.legend()

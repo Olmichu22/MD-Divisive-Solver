@@ -4,8 +4,8 @@ from .reward_functions import MD, DA
 def local_search_MA(X, D, j_eval, k_eval, verbose = False): 
     # Calcular DA(X) para la solución dada y ordenar por valor descendente
     da_values = DA(X, D)
-    sorted_indices_out = ordenar_indices(da_values, X, True, False)
-    sorted_indices_in = ordenar_indices(da_values, X, False, True)
+    sorted_indices_out = ordenar_indices(da_values, X, False, False)
+    sorted_indices_in = ordenar_indices(da_values, X, True, True)
 
     j = 0
     mejora = False
@@ -38,7 +38,8 @@ def local_search_MA(X, D, j_eval, k_eval, verbose = False):
         print(f"La diferencia de MD es {MD(X_star, D) - MD(X, D)}")
       else:
         print("No se encontró mejora")
-    return X_star, mejora
+    new_MD = MD(X_star, D)
+    return X_star, mejora, j_index, k_index, new_MD
   
 import matplotlib.pyplot as plt
 import numpy as np
